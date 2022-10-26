@@ -2,7 +2,7 @@ from email import message
 from django.shortcuts import render
 from .models import Post
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib import message
+from django.contrib import messages
 
 # Create your views here.
 def  feed(request):
@@ -15,7 +15,7 @@ def register (request):
             if form.is_valid():
                 username=form.cleaned_data['username']
 
-                message.success(request,f'Usuario {username} creado')
+                messages.success(request,f'Usuario {username} creado')
         else:
              form =UserCreationForm()
         return render(request,'social/register.html',{"form":form})
