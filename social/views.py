@@ -1,7 +1,7 @@
 from email import message
 from django.shortcuts import render
 from .models import Post
-from django.contrib.auth.forms import UserCreationForm,
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib import message
 
 # Create your views here.
