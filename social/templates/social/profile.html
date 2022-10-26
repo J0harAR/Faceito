@@ -3,26 +3,29 @@
 
 <!-- Profile -->
 <div class="profile">
-	<img src="../../static/batman.png">
-	<h2>@batman</h2>
+	<img src="{{user.profile.imagen.url}}">
+	<h2>@{{user.username}}</h2>
+	<p>Numero de control:19161229</p>
 	<button><a class="follow-button" href="#">Follow</a></button>
 </div>
 
 <!-- Follow items -->
 <div class="follow">
+	
 	<div>
-		<h5>Post</h5>
-		<p>0</p>
+		<h5>Nombre</h5>
+		<p>{{user.first_name}}</p>
 	</div>
 	<div>
-		<h5>Followers</h5>
-		<p>0</p>
+		<h5>Apellido</h5>
+		<p>{{user.last_name }}</p>
 
 	</div>
 	<div>
-		<h5>Following</h5>
-		<p>0</p>
+		<h5>Semestre</h5>
+		<p>7</p>
 	</div>
+	
 </div>
 
 

@@ -12,16 +12,16 @@
 
 	<header class="main-head">
 		<nav class="main">
-			<h1 id="logo">Hola</h1>
+			<h1 id="logo">bienvenido {{user.username}}</h1>
 			<ul>
 				<li><a href="#">Logout</a></li>
-				<li><a href="#">Register</a></li>
+				<li><a href="{% url 'register' %}">Register</a></li>
 				<li><a href="#">Login</a></li>
 			</ul>
 		</nav>
 	</header>
 
-	{% if messages %}
+	
 
 	<!-------------------------------------
 					Navigation Bar 
@@ -29,8 +29,8 @@
 	<div class="main">
 		
 		<nav class="second-nav">
-			<a class="feed" href="#">Inicio</a>
-			<a class="profile" href="#">Mi Perfil</a>
+			<a class="feed" href="{% url 'feed' %}">Inicio</a>
+			<a class="profile" href="{% url 'profile' %}">Mi Perfil</a>
 			<a class="new" href="#">Crear nuevo post</a>
 		</nav>
 

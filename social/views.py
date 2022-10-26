@@ -21,5 +21,7 @@ def register (request):
         return render(request,'social/register.html',{"form":form})
 
 def  profile(request):
+
+    
     return render(request,'social/profile.html')
     
