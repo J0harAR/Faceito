@@ -1,12 +1,126 @@
-{% extends 'social/layout.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <title>Registrate</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link href="https://bootswatch.com/5/quartz/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
-{% block content %}
-
-<form class="form" method="post">
-{% csrf_token %}
-{{form.as_p}}
     
-<button type="submit" id="submit">Registrarse </button>
+    
+</head>
+<body class="form">
 
-</form>
-{% endblock  %}
+    <div class="auth-container d-flex">
+
+        <div class="container mx-auto align-self-center">
+    
+            <div class="row">
+    
+                <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-8 col-12 d-flex flex-column align-self-center mx-auto">
+                    <div class="card mt-3 mb-3">
+                        <div class="card-body">
+    
+                            <div class="row">
+                                <div class="col-md-12 mb-3" >
+                                    <div class="d-flex justify-content-center"><img src="https://img001.prntscr.com/file/img001/pyECjFFgTfGD8XK6sRKLig.png" with="150px" height="150px"> </div>
+                                    <br>
+                                    <div class="d-flex justify-content-center"> <h2>Registrate en FaceITO</h2> </div>
+                                    <br>
+                                    <p>TecNM Campus Oaxaca</p>
+                                    
+                                </div>
+                                    <form method="POST">
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label class="form-label">Número de control:</label>
+                                            <input type="text" class="form-control" name="ncontrol" id="ncontrol" maxlength="9">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="mb-4">
+                                            <label class="form-label">Nombres:</label>
+                                            <input type="text" class="form-control" name="nombre" id="nombre">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-12">
+                                        <div class="mb-4">
+                                            <label class="form-label">Apellidos:</label>
+                                            <input type="text" class="form-control" name="apellidos" id="apellidos">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="mb-4">
+                                        <label for="semestre" class="form-label">Semestre:</label>
+                                        <select id="semestre" required="required" class="form-select" name="semestre">
+                                            <option disabled selected>Selecciona...</option>
+                                            <option value="1" >1</option>
+                                            <option value="2" >2</option>
+                                            <option value="3" >3</option>
+                                            <option value="4" >4</option>
+                                            <option value="5" >5</option>
+                                            <option value="6" >6</option>
+                                            <option value="7" >7</option>
+                                            <option value="8" >8</option>
+                                            <option value="9" >9</option>
+                                            <option value="10" >10</option>
+                                            <option value="11" >11</option>
+                                            <option value="12" >12</option>
+
+                                            
+                                        </select>
+                                    </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="mb-4">
+                                            <label class="form-label">Correo Institucional:</label>
+                                            <input type="email" class="form-control" name="correo" id="correo">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="mb-4">
+                                            <label class="form-label">Contraseña:</label>
+                                            <input type="password" class="form-control" name="pass1" id="pass1">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="mb-4">
+                                            <label class="form-label">Confirmar Contraseña:</label>
+                                            <input type="password" class="form-control" name="pass2" id="pass2">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="mb-4">
+                                            <button class="btn btn-secondary w-100">Registrate</button>
+                                        </div>
+                                    </div>
+                                    
+                                </form>
+                                
+                               
+                                
+                               
+
+                                <div class="col-12">
+                                    <div class="text-center">
+                                        <p class="mb-0">¿Ya tienes cuenta? <a href="/vista_acceso" class="text-warning">Clic aqui para inicar sesión</a></p>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+
+    </div>
+
+</body>
+</html>
