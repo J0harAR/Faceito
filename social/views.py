@@ -1,4 +1,5 @@
 
+import email
 from django.shortcuts import redirect, render
 from .models import Post,Usuario
 from django.contrib.auth.models import User
@@ -21,12 +22,13 @@ def register (request):
             pass1=request.POST['pass1']
             pass2=request.POST['pass2'] 
             enc_password=pbkdf2_sha256.encrypt(pass1,rounds=12000,salt_size=32)
-            
-            
-            
-                    
 
-
+            if Usuario.objects.filter(nControl=nControl):
+                messages.error(request,"Numero de control ya registrado")
+                return redirect('register') 
+            if Usuario.objects.filter(email=email):
+                messages.error(request,"Correo institucional ya registrado")
+            
             if pass1.__eq__(pass2):    
                 Usuario.objects.create(
                 nControl=nControl,
