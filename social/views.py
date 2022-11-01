@@ -1,9 +1,10 @@
 
-import email
+
 from django.shortcuts import redirect, render
-from .models import Post,Usuario
-from django.contrib.auth.models import User
+from .models import Post, Profile,Usuario
+
 from django.contrib import messages
+from django.contrib.auth import  authenticate
 from passlib.hash import pbkdf2_sha256
 
 # Create your views here.
@@ -26,26 +27,54 @@ def register (request):
             if Usuario.objects.filter(nControl=nControl):
                 messages.error(request,"Numero de control ya registrado")
                 return redirect('register') 
-            if Usuario.objects.filter(email=email):
-                messages.error(request,"Correo institucional ya registrado")
-            
+            if Usuario.objects.filter(email=correo):
+                messages.error(request,"Correo institucional ya registrado")      
             if pass1.__eq__(pass2):    
-                Usuario.objects.create(
-                nControl=nControl,
-                nombre=name,
-                apellidoP=first_name,
-                apellidoM=last_name,
-                semestre=semestre,
-                email=correo,
-                password=enc_password)    
-                return redirect('login') 
-                   
-               
+                if Usuario.objects.filter(password=pass1):
+                    messages.error(request,"Intente con otra contraseña") 
+                else:
+                
+                 p1=Usuario(nControl=nControl,
+                 nombre=name,
+                 apellidoP=first_name,
+                 apellidoM=last_name,
+                 semestre=semestre,
+                 email=correo,
+                 password=pass1)
+                 p1.save()
+                 return redirect('login') 
+
+            else:      
+                messages.error(request,"Las contraseñas no coinciden")
+                                        
         return render(request,'social/register.html')
    
        
 def  profile(request):
+
     return render(request,'social/profile.html')
+
+
+
 def login(request):
+    if request.method == 'POST':
+            nControl=request.POST['ncontrol']
+            pass1=request.POST['pass1']
+            
+        
+            if Usuario.objects.filter(nControl=nControl) and Usuario.objects.filter(password=pass1):
+                nControl=Usuario.objects.get(nControl=nControl)
+                nombre=Usuario.nombre
+                apellidoP=Usuario.apellidoP
+                apellidoM=Usuario.apellidoM
+                semestre=Usuario.semestre
+                email=Usuario.email
+
+                
+                return render(request,'social/layout.html',{"nControl":nControl,
+                "nombre":nombre,"apellidoP":apellidoP,"apellidoM":apellidoM,"semestre":semestre,
+                "email":email})
+                
+         
     return render(request, 'social/acceso.html')
     

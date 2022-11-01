@@ -26,10 +26,17 @@
     
 </head>
 <body class="form">
-   
-   
-    <!--  END LOADER -->
-
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-danger alert-dismissible " id="alerta" role="alert">
+            <strong>{{ message }}</strong>
+            <button id="cerrar" type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                
+            </button>
+          </div>
+        {% endfor %}
+    {% endif %}
+    
     <div class="auth-container d-flex">
 
         <div class="container mx-auto align-self-center">
@@ -141,9 +148,20 @@
     </div>
     
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
-
+    <script type="text/javascript">
+        $(document).ready(function () {
+    
+            $('#cerrar').click(function () {
+                $('#alerta').alert('close');
+            });
+    
+        });
+    </script>
 
 </body>
 </html>
