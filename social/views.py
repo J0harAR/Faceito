@@ -50,9 +50,22 @@ def register (request):
         return render(request,'social/register.html')
    
        
-def  profile(request):
+def  profile(request,nControl):
+    context={}
+    usuario=Usuario.objects.get(nControl=nControl)
+    profile=Profile.objects.get(user=usuario)
 
-    return render(request,'social/profile.html')
+    context['nControl'] =usuario.nControl
+    context['nombre'] = usuario.nombre
+    context['apellidoP'] = usuario.apellidoP
+    context['apellidoM'] = usuario.apellidoM
+    context['email'] = usuario.email
+    context['semestre'] = usuario.semestre
+    context['imagen'] = profile.imagen.url
+    
+
+
+    return render(request,'social/profile.html',context)
 
 
 
@@ -60,20 +73,17 @@ def login(request):
     if request.method == 'POST':
             nControl=request.POST['ncontrol']
             pass1=request.POST['pass1']
-            
-        
             if Usuario.objects.filter(nControl=nControl) and Usuario.objects.filter(password=pass1):
-                nControl=Usuario.objects.get(nControl=nControl)
-                nombre=Usuario.nombre
-                apellidoP=Usuario.apellidoP
-                apellidoM=Usuario.apellidoM
-                semestre=Usuario.semestre
-                email=Usuario.email
+                usuario=Usuario.objects.get(nControl=nControl)
+                context={}               
+                context['nControl'] =usuario.nControl
+                return render(request,'social/layout.html')
+            else:
+                messages.error(request,"Datos incorrectos")  
+                return redirect('login')
 
                 
-                return render(request,'social/layout.html',{"nControl":nControl,
-                "nombre":nombre,"apellidoP":apellidoP,"apellidoM":apellidoM,"semestre":semestre,
-                "email":email})
+                
                 
          
     return render(request, 'social/acceso.html')

@@ -3,9 +3,9 @@
 
 <!-- Profile -->
 <div class="profile">
-	<img src="{{user.profile.imagen.url}}">
-	<h2>@{{user.username}}</h2>
-	<p>Numero de control:19161229</p>
+	<img src="{{imagen}}">
+	<h2>@{{nControl}}</h2>
+
 	<button><a class="follow-button" href="#">Follow</a></button>
 </div>
 
@@ -14,16 +14,16 @@
 	
 	<div>
 		<h5>Nombre</h5>
-		<p>{{Usuarios.nControl}}</p>
+		<p>{{nombre}}</p>
 	</div>
 	<div>
-		<h5>Apellido</h5>
-		<p>{{user.last_name }}</p>
+		<h5>Apellidos</h5>
+		<p>{{apellidoP}} {{apellidoM}}</p>
 
 	</div>
 	<div>
 		<h5>Semestre</h5>
-		<p>7</p>
+		<p>{{semestre}}</p>
 	</div>
 	
 </div>

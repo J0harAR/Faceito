@@ -12,11 +12,12 @@
 
 	<header class="main-head">
 		<nav class="main">
-			<h1 id="logo">Bienvenido </h1>
+			<h1 id="logo">Bienvenido</h1>
 			<ul>
-				<li><a href="#">Logout</a></li>
+				<li><a href="{% url 'login' %}">Logout</a></li>
 				<li><a href="{% url 'register' %}">Register</a></li>
 				<li><a href="{% url 'login' %}">Login</a></li>
+				
 			</ul>
 		</nav>
 	</header>
@@ -30,7 +31,10 @@
 		
 		<nav class="second-nav">
 			<a class="feed" href="{% url 'feed' %}">Inicio</a>
-			<a class="profile" href="{% url 'profile' %}">Mi Perfil</a>
+			<a class="feed" href="#">Perfil</a>
+			
+			
+			
 			<a class="new" href="#">Crear nuevo post</a>
 		</nav>
 
