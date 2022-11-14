@@ -20,6 +20,13 @@
     <link href="{% static '/assets/layouts/vertical-light-menu/css/dark/plugins.css' %}" rel="stylesheet" type="text/css" />
     <link href="{% static '/assets/src/assets/css/dark/authentication/auth-boxed.css' %}" rel="stylesheet" type="text/css" />
 
+    <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'estilos/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{% static 'estilos/fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'estilos/css/util.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'estilos/css/main.css' %}">
+
     
     
 </head>
@@ -36,78 +43,53 @@
 {% endif %}
 
 
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <div class="login100-form-title" style="background-image: url(faceito/social/static/estilos/images/tec5.jpg);">
+                <span class="login100-form-title-1">
+                    ACCESO
+                </span>
+            </div>
 
+            <form class="login100-form">
+                <div class="wrap-input100 m-b-26">
+                    <span class="label-input100">Número de control</span>
+                    <input class="input100" type="text" name="username" placeholder="Ingrese su número de control">
+                    <span class="focus-input100"></span>
+                </div>
 
+                <div class="wrap-input100 m-b-18">
+                    <span class="label-input100">Contraseña</span>
+                    <input class="input100" type="password" name="pass" placeholder="Ingrese su contraseña">
+                    <span class="focus-input100"></span>
+                </div>
 
-    <div class="auth-container d-flex">
+                <div class="flex-sb-m w-full p-b-30">
+                    <div class="contact100-form-checkbox">
+                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                        <label class="label-checkbox100" for="ckb1">
+                            Recuérdame
+                        </label>
+                    </div>
 
-        <div class="container mx-auto align-self-center">
-    
-            <div class="row">
-    
-                <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-8 col-12 d-flex flex-column align-self-center mx-auto">
-                    <div class="card mt-3 mb-3">
-                        <div class="card-body">
-    
-                            <div class="row">
-                                <div class="col-md-12 mb-3">
-                                    
-                                    <h2>Login</h2>
-                                    <p>Introduce tu numero de control y contraseña para ingresar</p>
-                                    
-                                </div>
-
-                                <form action="/acceso/" method="post">
-                                    {% csrf_token %}
-                                    <div class="col-md-12">
-                                        <div class="mb-3">
-                                            <label class="form-label">Numero de control</label>
-                                            <input type="text" class="form-control add-billing-address-input" id="ncontrol" name="ncontrol">
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="mb-3">
-                                            <label class="form-label">Contraseña</label>
-                                            <input type="password" class="form-control" id="pass1" name="pass1">
-                                        </div>
-                                    </div>
-                                <div class="col-12">
-                                    <div class="mb-3">
-                                        <div class="form-check form-check-primary form-check-inline">
-                                            <input class="form-check-input me-3" type="checkbox" id="form-check-default">
-                                            <label class="form-check-label" for="form-check-default">
-                                                Remember me
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-12">
-                                    <div class="mb-4">
-                                        <button class="btn btn-secondary w-100">SIGN IN</button>
-                                    </div>
-                                </div>
-                            </form>
-                                
-                               
-
-                                <div class="col-12">
-                                    <div class="text-center">
-                                        <p class="mb-0">Dont't have an account ? <a href="javascript:void(0);" class="text-warning">Sign Up</a></p>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            
-                        </div>
+                    <div>
+                        
                     </div>
                 </div>
-                
-            </div>
-            
-        </div>
 
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn">
+                        Iniciar sesión
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
+</div>
+
+
+    
     
      <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
