@@ -47,7 +47,7 @@ def register (request):
             else:      
                 messages.error(request,"Las contraseñas no coinciden")
                                         
-        return render(request,'social/register.html')
+        return render(request,'social/Registro.html')
    
        
 def  profile(request,nControl):
