@@ -21,7 +21,7 @@
 					
 					<a href="{% url 'profile' %} " class="button-30">Perfil</a>
 					
-					<a href="{% url 'profile' %} " class="button-30">Post</a>
+					<a href="{% url 'profile' %} " class="button-30">Salir</a>
 					
 				</div>
 				
@@ -75,40 +75,33 @@
 				<div class="card-header">
 					<ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
 						<li class="nav-item">
-							<a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">Make
-								a publication</a>
+							<a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">Publicacion
+								</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" id="images-tab" data-toggle="tab" role="tab" aria-controls="images" aria-selected="false" href="#images">Images</a>
-						</li>
+						
 					</ul>
 				</div>
+				<form action="/post/"method="POST">
+					{% csrf_token %}
 				<div class="card-body">
 					<div class="tab-content" id="myTabContent">
 						<div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
 							<div class="form-group">
-								<label class="sr-only" for="message">post</label>
-								<textarea class="form-control" id="message" rows="3" placeholder="What are you thinking?"></textarea>
+								
+								<textarea class="form-control" name="contenido" id="contenido" rows="3" placeholder="Postea lo que quieras"></textarea>
 							</div>
 	
 						</div>
-						<div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
-							<div class="form-group">
-								<div class="custom-file">
-									<input type="file" class="custom-file-input" id="customFile">
-									<label class="custom-file-label" for="customFile">Upload image</label>
-								</div>
-							</div>
-							<div class="py-4"></div>
-						</div>
+					
 					</div>
 					<div class="btn-toolbar justify-content-between">
 						<div class="btn-group">
-							<button type="submit" class="btn btn-primary">share</button>
+							<button type="submit" class="btn btn-primary">Publicar</button>
 						</div>
 						
 					</div>
 				</div>
+			</form>
 			</div>
 			
 		
@@ -122,50 +115,32 @@
 {% for post in posts %}
 
 
-<div class="card gedf-card" style="margin-top: 10px;">
+<div class="card gedf-card" style="margin-top: 10px; margin-left: 4px; margin-right: 4px;">
 	<div class="card-header">
 		<div class="d-flex justify-content-between align-items-center">
 			<div class="d-flex justify-content-between align-items-center">
 				<div class="mr-2">
-					<img class="rounded-circle" width="45" src="https://picsum.photos/50/50" alt="">
+					<img class="rounded-circle" width="45" src="{{post.user.profile.imagen.url}}" alt="">
 				</div>
 				<div class="ml-2">
-					<div class="h5 m-0">@LeeCross</div>
-					<div class="h7 text-muted">Miracles Lee Cross</div>
+					<a href="{%url 'profile' post.user.username %}" class="h5 m-0">@{{post.user.username}}</a>
+					<div class="h7 text-muted">{{post.user.first_name}} {{post.user.last_name}}</div>
 				</div>
 			</div>
 			<div>
-				<div class="dropdown">
-					<button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<i class="fa fa-ellipsis-h"></i>
-					</button>
-					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
-						<div class="h6 dropdown-header">Configuration</div>
-						<a class="dropdown-item" href="#">Save</a>
-						<a class="dropdown-item" href="#">Hide</a>
-						<a class="dropdown-item" href="#">Report</a>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 
 	</div>
 	<div class="card-body">
-		<div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>10 min ago</div>
-		<a class="card-link" href="#">
-			<h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adip.</h5>
-		</a>
-
+		<div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>{{post.fecha|naturaltime}}</div>
+	
 		<p class="card-text">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo recusandae nulla rem eos ipsa praesentium esse magnam nemo dolor
-			sequi fuga quia quaerat cum, obcaecati hic, molestias minima iste voluptates.
+			{{post.contenido}}
 		</p>
 	</div>
-	<div class="card-footer">
-		<a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
-		<a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a>
-		<a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
-	</div>
+	
 </div>
 {% endfor %}
 {% endblock %}
