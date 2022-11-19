@@ -10,7 +10,8 @@ from django.db.models.signals import post_save
 class UserDetails(models.Model):
    user=models.OneToOneField(User,on_delete=models.CASCADE)
    semestre=models.IntegerField()     
- 
+def getSemestre(self):
+        return self.semestre
   
 
 class Usuario(models.Model):

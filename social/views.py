@@ -52,8 +52,11 @@ def register (request):
    
        
 def  profile(request):
- 
-    return render(request,'social/profile.html')
+    user=get_object_or_404(User,pk=request.user.pk)
+    semestre=UserDetails.objects.get(user=user)
+    
+    
+    return render(request,'social/profile.html',{"semestre":semestre})
 
 
 def signin(request):
