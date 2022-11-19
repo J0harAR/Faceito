@@ -5,10 +5,10 @@
 {% if user.is_authenticated %}
 	
 	<div style="display: flex; flex-direction: row;">
-		<div class="main" style="width: 30%; text-align: center;">
+		<div class="main" style="width: 30%; text-align: center; height: 70vh;">
 			<div style="margin-top: 40px;">
 				<h2>IMAGEN</h2>
-				<h2>@</h2>
+				<h2>@{{user.first_name}}</h2>
 				<h2>Numero de control</h2>
 				<h2>{{user.username}}</h2>
 
@@ -16,11 +16,11 @@
 			<div style="display: flex; flex-direction: row; margin-top: 40px;">
 				<div style="width: 50%;">
 					<h2>Nombre</h2>
-					<h3>UsuarioNombre</h3>
+					<h3>{{user.first_name}}</h3>
 				</div>
 				<div style="width: 50%;">
 					<h2>Apellido</h2>
-					<h3>UsuarioApelldo</h3>
+					<h3>{{user.last_name}}</h3>
 				</div>
 			</div>
 
@@ -29,11 +29,11 @@
 		<div class="main">
 
 			<div>
-				<form action="/">
+				<form action="/post/" method="POST">
 					{% csrf_token %}
 					<div style="display: flex; flex-direction: row;">
 						<h2>IMAGEN</h2>
-						<textarea name="" id="" cols="30" rows="1" style="margin-left: 10px;"></textarea>
+						<textarea name="contenido" id="contenido"  cols="30" rows="1" style="margin-left: 10px;"></textarea>
 					</div>
 					<button type="submit"
 						style="border-radius: 30px; width: 100%; background-color: #10E3BD;">Publicar</button>

@@ -36,7 +36,7 @@ class Post(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='posts')
     fecha=models.DateTimeField(default=timezone.now)
     contenido=models.TextField()
-    imagen=models.ImageField(upload_to='Post',null=True,blank=True)
+   
     class Meta:
         ordering=['-fecha']
     def __str__(self) :

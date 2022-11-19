@@ -1,7 +1,7 @@
 
 
 from django.http import HttpResponseRedirect
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from .models import Post, Profile,Usuario,UserDetails
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -83,8 +83,7 @@ def signin(request):
                 if request.user.is_authenticated:
                   
                     return HttpResponseRedirect('/feed')    
-               # return render(request,'social/feed.html',{"posts":posts,"nControl":nControl})
-           
+                      
             else:
                 messages.error(request,"Datos incorrectos")  
                 return redirect('login')
@@ -94,4 +93,10 @@ def signin(request):
                 
          
     return render(request, 'social/acceso.html')
-    
+def post (request):
+         if request.method == 'POST':
+            user=get_object_or_404(User,pk=request.user.pk)
+            contenido=request.POST['contenido']
+            post=Post.objects.create(user=user,contenido=contenido)
+            post.save()
+            return HttpResponseRedirect('/feed')   

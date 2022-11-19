@@ -13,4 +13,5 @@ urlpatterns=[
     path('profile/',views.profile, name='profile'),
     path('register/',views.register, name='register'),
     path('acceso/',views.signin, name='signin'),
+    path('post/',views.post, name='post'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
