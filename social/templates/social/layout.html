@@ -18,7 +18,7 @@
 			<ul>
 				<li><a href="#">Logout</a></li>
 				<li><a href="{% url 'register' %}">Register</a></li>
-				<li><a href="{% url 'login' %}">Login</a></li>
+				<li><a href="{% url 'signin' %}">Login</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -30,41 +30,7 @@
 	<!-------------------------------------
 					Navigation Bar 
 	-------------------------------------->
-	<div style="display: flex; flex-direction: row;">
-		<div class="main" style="width: 30%; text-align: center;">
-			<div style="margin-top: 40px;">
-				<h2>IMAGEN</h2>
-				<h2>@Usuario</h2>
-				<h2>Numero de control</h2>
-
-			</div>
-			<div style="display: flex; flex-direction: row; margin-top: 40px;">
-				<div style="width: 50%;">
-					<h2>Nombre</h2>
-					<h3>UsuarioNombre</h3>
-				</div>
-				<div style="width: 50%;">
-					<h2>Apellido</h2>
-					<h3>UsuarioApelldo</h3>
-				</div>
-			</div>
-
-		</div>
-
-		<div class="main">
-
-			<div>
-				<form action="/">
-					<div style="display: flex; flex-direction: row;">
-						<h2>IMAGEN</h2>
-						<textarea name="" id="" cols="30" rows="1" style="margin-left: 10px;"></textarea>
-					</div>
-					<button type="submit"
-						style="border-radius: 30px; width: 100%; background-color: #10E3BD;">Publicar</button>
-				</form>
-			</div>
-
-
+	
 
 
 			{% block content %}

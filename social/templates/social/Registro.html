@@ -5,15 +5,44 @@
 	<title>REGISTRO</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="icon" type="image/x-icon" href="{% static '/assets/src/assets/img/favicon.ico' %}"/>
+    <link href="{% static '/assets/layouts/vertical-light-menu/css/light/loader.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static '/assets/layouts/vertical-light-menu/css/dark/loader.css' %}" rel="stylesheet" type="text/css" />
+    <script src="{% static '/assets/layouts/vertical-light-menu/loader.js"></script>
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link href="{% static '/assets/src/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+    
+    <link href="{% static '/assets/layouts/vertical-light-menu/css/light/plugins.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static '/assets/src/assets/css/light/authentication/auth-boxed.css' %}" rel="stylesheet" type="text/css" />
+    
+    <link href="{% static '/assets/layouts/vertical-light-menu/css/dark/plugins.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static '/assets/src/assets/css/dark/authentication/auth-boxed.css' %}" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="{% static 'estilos/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
     <!--===============================================================================================-->
         <link rel="stylesheet" type="text/css" href="{% static 'estilos/fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'estilos/css/util.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'estilos/css/main.css' %}">
 
+
 <!--===============================================================================================-->
 </head>
 <body>
+	{% if messages %}
+	{% for message in messages %}
+	<div class="alert alert-danger alert-dismissible " id="alerta" role="alert">
+		<strong>{{ message }}</strong>
+		<button id="cerrar" type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+			
+		</button>
+	  </div>
+	{% endfor %}
+{% endif %}
+
+
+
+
 	
 	<div class="limiter">
 		<div class="container-login100">
@@ -24,33 +53,34 @@
 					</span>
 				</div>
 
-				<form class="login100-form">
+				<form class="login100-form" action="/register/" method="post">
+					{% csrf_token %}
 					<div class="wrap-input100 m-b-26">
 						<span class="label-input100">Numero de Control</span>
-						<input class="input100" type="text" name="username" placeholder="">
+						<input class="input100" type="text" name="ncontrol" placeholder="" id="ncontrol">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 m-b-26">
 						<span class="label-input100">Nombre</span>
-						<input class="input100" type="text" name="nametext" placeholder="">
+						<input class="input100" type="text" name="nombre" placeholder="" id="nombre">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 m-b-26">
 						<span class="label-input100">Apellido paterno</span>
-						<input class="input100" type="text" name="apellido1" placeholder="">
+						<input class="input100" type="text" name="apellidoP" placeholder="" id="apellidoP">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 m-b-26">
 						<span class="label-input100">Apellido materno</span>
-						<input class="input100" type="text" name="apellido2" placeholder="">
+						<input class="input100" type="text" name="apellidoM" placeholder="" id="apellidoM">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="m-b-26">
-						<select id="semestre" name="semestres">
+						<select id="semestre" name="semestre">
 							<option value="1">Seleccionar semestre...</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -72,20 +102,20 @@
 
 					<div class="wrap-input100 m-b-26">
 						<span class="label-input100">Correo Institucional</span>
-						<input class="input100" type="email" name="correo" placeholder="">
+						<input class="input100" type="email" name="correo" placeholder="" id="correo">
 						<span class="focus-input100"></span>
 					</div>
 					
 
 					<div class="wrap-input100 m-b-18">
 						<span class="label-input100">Contraseña</span>
-						<input class="input100" type="password" name="pass" placeholder="">
+						<input class="input100" type="password" name="pass1" placeholder="" id="pass1">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 m-b-18">
 						<span class="label-input100">Confirmar contraseña</span>
-						<input class="input100" type="password" name="confirmpass" placeholder="">
+						<input class="input100" type="password" name="pass2" placeholder="" id="pass2">
 						<span class="focus-input100"></span>
 					</div>
 

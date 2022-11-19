@@ -52,16 +52,17 @@
                 </span>
             </div>
 
-            <form class="login100-form">
+            <form class="login100-form" action="/acceso/" method="post">
+                {% csrf_token %}
                 <div class="wrap-input100 m-b-26">
                     <span class="label-input100">Número de control</span>
-                    <input class="input100" type="text" name="username" placeholder="Ingrese su número de control">
+                    <input class="input100" type="text" name="ncontrol" placeholder="Ingrese su número de control" id="ncontrol">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 m-b-18">
                     <span class="label-input100">Contraseña</span>
-                    <input class="input100" type="password" name="pass" placeholder="Ingrese su contraseña">
+                    <input class="input100" type="password" name="pass1" placeholder="Ingrese su contraseña" id="pass1">
                     <span class="focus-input100"></span>
                 </div>
 
