@@ -41,7 +41,7 @@ def register (request):
                     myuser.save()
                     userDetails=UserDetails.objects.create(user=myuser,semestre=semestre)
                             
-                    return redirect('login') 
+                    return redirect('signin') 
             else:
                    messages.error(request,"Las contraseñas no coinciden")
 
