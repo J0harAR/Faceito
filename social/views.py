@@ -51,22 +51,9 @@ def register (request):
         return render(request,'social/Registro.html')
    
        
-def  profile(request,nControl):
-    context={}
-    usuario=Usuario.objects.get(nControl=nControl)
-    profile=Profile.objects.get(user=usuario)
-
-    context['nControl'] =usuario.nControl
-    context['nombre'] = usuario.nombre
-    context['apellidoP'] = usuario.apellidoP
-    context['apellidoM'] = usuario.apellidoM
-    context['email'] = usuario.email
-    context['semestre'] = usuario.semestre
-    context['imagen'] = profile.imagen.url
-    
-
-
-    return render(request,'social/profile.html',context)
+def  profile(request):
+ 
+    return render(request,'social/profile.html')
 
 
 def signin(request):
