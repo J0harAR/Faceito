@@ -54,11 +54,19 @@ def register (request):
 def  profile(request,username=None):
         user=get_object_or_404(User,pk=request.user.pk)
         semestre=UserDetails.objects.get(user=user)
-        if username and username!=user:
-             usuario=User.objects.get(username=username)
+        if username==None:
              user=get_object_or_404(User,pk=request.user.pk)
-             
-        return render(request,'social/profile.html',{"semestre":semestre})
+             semestre=UserDetails.objects.get(user=user)
+        
+        if username and username==user:   
+             user=get_object_or_404(User,pk=request.user.pk)
+             semestre=UserDetails.objects.get(user=user)
+        
+        else:
+            user=User.objects.get(username=username)
+       #  user=User.objects.get(username=username)
+            semestre=UserDetails.objects.get(user=user)
+        return render(request,'social/profile.html',{"semestre":semestre,"usuario":user})
 
 
 def signin(request):
