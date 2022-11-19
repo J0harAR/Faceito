@@ -5,9 +5,13 @@
 {% if user.is_authenticated %}
 	
 	<div style="display: flex; flex-direction: row;">
-		<div class="main" style="width: 30%; text-align: center; height: 70vh;">
+		<div class="main" style="width: 30%; text-align: center; height: 40vh;">
 			<div style="margin-top: 40px;">
-				<h2>IMAGEN</h2>
+				<div class="container-article" style="justify-content: center;">
+					<img src="{{ user.profile.imagen.url }}">
+
+				</div>
+				
 				<h2>@{{user.first_name}}</h2>
 				<h2>Numero de control</h2>
 				<h2>{{user.username}}</h2>
