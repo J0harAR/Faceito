@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from .models import Post, Profile,Usuario,UserDetails
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.contrib.auth import  authenticate,login
+from django.contrib.auth import  authenticate,login,logout
 
 
 
@@ -100,3 +100,6 @@ def post (request):
             post=Post.objects.create(user=user,contenido=contenido)
             post.save()
             return HttpResponseRedirect('/feed')   
+def cerrar_sesion(request):
+    logout(request)
+    return redirect ('signin')

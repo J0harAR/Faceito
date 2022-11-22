@@ -15,4 +15,5 @@ urlpatterns=[
     path('register/',views.register, name='register'),
     path('acceso/',views.signin, name='signin'),
     path('post/',views.post, name='post'),
+    path('acceso/',views.cerrar_sesion, name='cerrar'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
